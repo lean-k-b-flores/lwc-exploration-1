@@ -9,6 +9,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Exploration 1</label>
     <navType>Standard</navType>
+    <tabs>Daily_Todos1</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Exploration_1_UtilityBar</utilityBar>
 </CustomApplication>

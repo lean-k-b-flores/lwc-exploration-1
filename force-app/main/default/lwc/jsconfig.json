@@ -1,7 +1,32 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "paths": {},
+        "paths": {
+            "c/draggableContainer": [
+                "draggableContainer/draggableContainer.js"
+            ],
+            "c/dropTargetContainer": [
+                "dropTargetContainer/dropTargetContainer.js"
+            ],
+            "c/myTodoList": [
+                "myTodoList/myTodoList.js"
+            ],
+            "c/myList": [
+                "myList/myList.js"
+            ],
+            "c/myItem": [
+                "myItem/myItem.js"
+            ],
+            "c/dragAndDropContainer": [
+                "dragAndDropContainer/dragAndDropContainer.js"
+            ],
+            "c/data": [
+                "data/data.js"
+            ],
+            "c/todoApp": [
+                "todoApp/todoApp.js"
+            ]
+        },
         "experimentalDecorators": true
     },
     "include": [

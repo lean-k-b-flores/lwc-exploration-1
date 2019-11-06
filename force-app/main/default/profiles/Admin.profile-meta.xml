@@ -6,6 +6,18 @@
         <visible>true</visible>
     </applicationVisibilities>
     <custom>false</custom>
+    <tabVisibilities>
+        <tab>Daily_Todo_List</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Daily_Todos</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Daily_Todos1</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
