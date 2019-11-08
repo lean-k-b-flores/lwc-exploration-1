@@ -32,14 +32,13 @@ export default class TodoApp extends LightningElement {
     }
 	
 	handleListItemDrag(evt) {
-        console.log('Dragged id is: ' + evt.detail);
+        evt.stopPropagation();
         this.draggingid = evt.detail;
     }
 	
     handleItemDrop(evt) {
-        
+        evt.stopPropagation();
         const newCategory = evt.currentTarget.title;
-        console.log('Dropped to: ' + newCategory);
 
         const idx = this.tasklist.findIndex(task => task.taskid === this.draggingid);
         this.tasklist[idx].category = newCategory;
@@ -47,6 +46,7 @@ export default class TodoApp extends LightningElement {
         this.distributeTasks();
     }
     handleDragOver(evt) {
+        evt.stopPropagation();
         evt.preventDefault();
     }    
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="draggable" draggable="true" ondragstart={itemDragStart}>
+    <div class="draggable" draggable="true" ondragstart={itemDragStart} ondragend={itemDragEnd}>
         <lightning-card title={task.name}>
         </lightning-card>
     </div>
