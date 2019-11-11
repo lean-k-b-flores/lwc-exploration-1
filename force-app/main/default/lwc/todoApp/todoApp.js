@@ -19,10 +19,13 @@ export default class TodoApp extends LightningElement {
     @track tasklist = tasks;
     @track leftTasks = [];
     @track rightTasks = [];
+    idCounter = 2;
+
 
     connectedCallback() {
         this.distributeTasks();
     }
+
 
     distributeTasks() {
         const old = JSON.parse(JSON.stringify(this.lists));
@@ -48,5 +51,31 @@ export default class TodoApp extends LightningElement {
     handleDragOver(evt) {
         evt.stopPropagation();
         evt.preventDefault();
-    }    
+    }
+    handleKeyPress(evt) {
+        if(evt.keyCode === 13) {
+            evt.preventDefault();
+            this.idCounter++;
+            this.lists.push({
+                Id: this.idCounter,
+                category: evt.target.value,
+                tasks: []
+            })
+        }
+    }
+    handleNewItem(evt) {
+        
+        const lastTaskId = this.tasklist[this.tasklist.length - 1].taskid;
+
+        const currentCount = Number.parseInt(lastTaskId.slice(2), 10);
+
+        this.tasklist.push({
+            taskid: `ta${currentCount + 1}`,
+            name: evt.detail.taskName, 
+            category: evt.detail.category
+        })
+
+        this.distributeTasks();
+
+    }
 }

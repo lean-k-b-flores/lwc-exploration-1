@@ -1,16 +1,26 @@
 <template>
 
-    <lightning-layout class="drop-container slds-theme_default" horizontal-align="space">
+    <lightning-layout class="drop-container slds-theme_default">
         <template if:true={lists}>
-            <template for:each={lists} for:item="list">
-                <lightning-layout-item alignment-bump="right" size="4" key={list.Id}>
-                    <div class="slds-box slds-theme_shade" title={list.category} ondragover={handleDragOver} ondrop={handleItemDrop} onitemdrag={handleListItemDrag}>
-                        <lightning-card variant="narrow" title={list.category}>
-                            <c-my-list tasklist={list.tasks}></c-my-list>
+            <template iterator:list={lists}>
+                <lightning-layout-item padding="horizontal-small" key={list.value.Id}>
+                    <div class="slds-box slds-theme_shade" title={list.value.category} ondragover={handleDragOver} ondrop={handleItemDrop} onitemdrag={handleListItemDrag}>
+                        <lightning-card variant="narrow" title={list.value.category}>
+                            <c-my-list tasklist={list.value.tasks} category={list.value.category} onnewitem={handleNewItem}></c-my-list>
                         </lightning-card>
                     </div>
                 </lightning-layout-item>
+                <template if:true={list.last}>
+                    <lightning-layout-item padding="horizontal-medium" key={list.value.Id}>
+                        <div class="slds-box slds-theme_shade" title="Add new Column">
+                            <lightning-input class="slds-m-around_xx-small" label="Add new Column" type="text" title="Column Name" onkeypress={handleKeyPress}></lightning-input>
+                        </div>
+                    </lightning-layout-item>                    
+                </template>
             </template>
         </template>
     </lightning-layout>
+
+    <div class="my-container" lwc:dom="manual"></div>
+
 </template>
